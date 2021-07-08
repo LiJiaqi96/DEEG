@@ -1,4 +1,0 @@
-Home
-====
-
-We will build an EEG toolkit for every one!
