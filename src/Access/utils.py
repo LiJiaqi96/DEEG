@@ -2,6 +2,9 @@ import pandas as pd
 import numpy as np
 from scipy import io
 
+"""
+Utils for loading DEAP Dataset
+"""
 def data_partition(data):
     X = data['data']
     y = data['labels']
@@ -16,3 +19,18 @@ def data_integration(data_list):
     print("Shape of data: {}".format(data.shape))
     print("Shape of labels: {}".format(labels.shape))
     return data, labels
+
+"""
+Utils for loading NeuroMarketing Dataset
+"""
+def tryint(s):
+    try:
+        return int(s)
+    except ValueError:
+        return s
+
+def str2int(v_str):
+    return [tryint(sub_str) for sub_str in re.split('([0-9]+)', v_str)]
+
+def sort_NeuroMarketing(v_list):
+    return sorted(v_list, key=str2int)
