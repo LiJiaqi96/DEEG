@@ -21,8 +21,8 @@ def differential_asymmetry(signal, channel_name):
         signal_DE = dict(zip(cn, de))
         y = []
         for key in signal_DE:
-            if key == 'FP1':
-                y.append(signal_DE['FP1'] - signal_DE['FP2'])
+            if key == 'Fp1':
+                y.append(signal_DE['Fp1'] - signal_DE['Fp2'])
             if key == 'AF7':
                 y.append(signal_DE['AF7'] - signal_DE['AF8'])
             if key == 'AF3':
