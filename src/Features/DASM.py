@@ -1,3 +1,6 @@
+from .DE import differential_entropy
+import numpy as np
+
 def differential_asymmetry(signal, channel_name):
     """
     Calculate the differential asymmetry of EEG singnal
