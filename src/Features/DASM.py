@@ -4,7 +4,7 @@ def differential_asymmetry(signal, channel_name):
     The differential entropy of the right brain channel was subtracts from that of the corresponding left brain channel
     
     input:
-        signal: numpy array. The temporal signal (>=2d) for feature extraction.
+        signal: numpy array. The temporal signal (>=2d) for feature extraction
         channel_name: list or 1d array. The names of all the channels of the EEG signal
     return
         dasm: numpy array. 
