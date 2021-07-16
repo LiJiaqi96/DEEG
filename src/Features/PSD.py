@@ -17,14 +17,14 @@ def power_spectral_density(signal, signal_frequency, window_size):
         freqs, psd = scipy.signal.welch(s, sf, nperseg=ws)
         freq_res = freqs[1] - freqs[0]
 
-        delta = scipy.integrate.simps(psd[np.logical_and(freqs >= 0, freqs < 4)], dx=freq_res)
-        theta = scipy.integrate.simps(psd[np.logical_and(freqs >= 4, freqs <= 7)], dx=freq_res)
-        alpha = scipy.integrate.simps(psd[np.logical_and(freqs >= 8, freqs <= 15)], dx=freq_res)
-        beta = scipy.integrate.simps(psd[np.logical_and(freqs >= 16, freqs <= 31)], dx=freq_res)
-        gamma = scipy.integrate.simps(psd[np.logical_and(freqs >= 32, freqs <= freqs[-1])], dx=freq_res)
+        delta = scipy.integrate.simps(psd[np.logical_and(freqs >= 0, freqs < 4)], dx = freq_res)
+        theta = scipy.integrate.simps(psd[np.logical_and(freqs >= 4, freqs <= 7)], dx = freq_res)
+        alpha = scipy.integrate.simps(psd[np.logical_and(freqs >= 8, freqs <= 15)], dx = freq_res)
+        beta = scipy.integrate.simps(psd[np.logical_and(freqs >= 16, freqs <= 31)], dx = freq_res)
+        gamma = scipy.integrate.simps(psd[np.logical_and(freqs >= 32, freqs <= freqs[-1])], dx = freq_res)
         return delta, theta, alpha, beta, gamma
     
     if len(signal.shape) == 1:
         return cal_psd(signal, signal_frequency, window_size)
     else:
-        return np.apply_along_axis(cal_psd, axis=-1, arr=signal, sf=signal_frequency, ws=window_size)
+        return np.apply_along_axis(cal_psd, axis = -1, arr = signal, sf = signal_frequency, ws = window_size)

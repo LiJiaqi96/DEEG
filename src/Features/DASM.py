@@ -88,4 +88,4 @@ def differential_asymmetry(signal, channel_name):
     if len(DE.shape) == 1:
         return cal_dasm(DE, channel_name)
     else:
-        return np.apply_along_axis(cal_dasm, axis=-1, arr=DE, cn=channel_name)
+        return np.apply_along_axis(cal_dasm, axis = -1, arr = DE, cn = channel_name)

@@ -87,4 +87,4 @@ def differential_caudality(signal, channel_name):
     if len(DE.shape) == 1:
         return cal_dcau(DE, channel_name)
     else:
-        return np.apply_along_axis(cal_dcau, axis=-1, arr=DE, cn=channel_name)
+        return np.apply_along_axis(cal_dcau, axis = -1, arr = DE, cn = channel_name)
