@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 from scipy import io
+from scipy.io import loadmat
 
 """
 Utils for loading DEAP Dataset
@@ -34,3 +35,17 @@ def str2int(v_str):
 
 def sort_NeuroMarketing(v_list):
     return sorted(v_list, key=str2int)
+
+"""
+Utils for loading SEED Dataset
+"""
+def get_frequency_band_idx(frequency_band):
+    lookup = {'delta': 0,
+              'theta': 1,
+              'alpha': 2,
+              'beta': 3,
+              'gamma': 4}
+    return lookup[frequency_band]
+
+def get_labels(label_path):
+    return loadmat(label_path, verify_compressed_data_integrity=False)['label'][0]
