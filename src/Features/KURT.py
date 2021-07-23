@@ -1,6 +1,6 @@
 import numpy as np
 
-def kurt(signal):
+def kurtosis(signal):
     """
     Calculate the feature "kurt" of the EEG signal
     We support both 1d array input and DEEG standard input (p,m,e). For the later format, we calculate KURT on dim "e" and return a (p,m) numpy array.
@@ -10,7 +10,7 @@ def kurt(signal):
     return
         KURT: int or numpy array, depends on the input shape
     """
-    def cal_kurt(s):
+    def cal_kurtosis(s):
         n = len(s)
 
         ave1 = 0.0 
@@ -28,6 +28,6 @@ def kurt(signal):
         return ave4 / (sigma ** 4)
     
     if len(signal.shape) == 1: 
-        return cal_kurt(signal)
+        return cal_kurtosis(signal)
     else:
-        return np.apply_along_axis(cal_kurt, axis = -1, arr = signal)
+        return np.apply_along_axis(cal_kurtosis, axis = -1, arr = signal)
