@@ -2,7 +2,7 @@ import numpy as np
 
 def kurtosis(signal):
     """
-    Calculate the feature "kurt" of the EEG signal
+    Calculate the feature "kurtosis" of the EEG signal
     We support both 1d array input and DEEG standard input (p,m,e). For the later format, we calculate KURT on dim "e" and return a (p,m) numpy array.
     
     input:
