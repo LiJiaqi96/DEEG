@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 from scipy import io
 from scipy.io import loadmat
-
+from numpy import genfromtxt
 """
 Utils for loading DEAP Dataset
 """
@@ -49,3 +49,9 @@ def get_frequency_band_idx(frequency_band):
 
 def get_labels(label_path):
     return loadmat(label_path, verify_compressed_data_integrity=False)['label'][0]
+
+"""
+Utils for generic loading
+"""
+def read_csv(fname):
+    return genfromtxt(fname, delimiter=",")
