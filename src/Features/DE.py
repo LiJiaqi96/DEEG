@@ -1,12 +1,12 @@
 import numpy as np
 
 
-def differential_entropy(array):
+def differential_entropy(signal):
     """
     Calculate the feature "Differential Entropy" following the paper: "Differential Entropy Feature for EEG-based Vigilance Estimation", with hypothesis that processed signal is normal-distributed
     We support both 1d array input and DEEG standard input (p,m,e). For the later format, we calculate DE on dim "e" and return a (p,m) numpy array.
     input:
-        array: numpy array. The temporal signal for feature extraction. 1d or with multiple dimensions
+        signal: numpy array. The temporal signal for feature extraction. 1d or with multiple dimensions
     return:
         de: int or numpy array, depends on the input shape
     """
