@@ -14,15 +14,8 @@ def power_spectral_density(signal, signal_frequency, window_size):
         PSD: tuple or numpy array, depends on the input shape
     """
     def cal_psd(s, sf, ws):
-        freqs, psd = scipy.signal.welch(s, sf, nperseg=ws)
-        freq_res = freqs[1] - freqs[0]
-
-        delta = scipy.integrate.simps(psd[:], dx = freq_res)
-        theta = scipy.integrate.simps(psd[np.logical_and(freqs >= 4, freqs <= 7)], dx = freq_res)
-        alpha = scipy.integrate.simps(psd[np.logical_and(freqs >= 8, freqs <= 15)], dx = freq_res)
-        beta = scipy.integrate.simps(psd[np.logical_and(freqs >= 16, freqs <= 31)], dx = freq_res)
-        gamma = scipy.integrate.simps(psd[np.logical_and(freqs >= 32, freqs <= freqs[-1])], dx = freq_res)
-        return delta, theta, alpha, beta, gamma
+        freqs, psd= scipy.signal.welch(s, fs=sf, window='hanning', nperseg=ws, noverlap=None, nfft=None, detrend='constant', return_onesided=True, scaling='density', axis=-1)
+        return psd
     
     if len(signal.shape) == 1:
         return cal_psd(signal, signal_frequency, window_size)
