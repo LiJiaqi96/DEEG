@@ -1,4 +1,4 @@
-![image](https://github.com/LiJiaqi96/DEEG/tree/master/figures/logo.png)
+![image](/figures/logo.png)
 # DEEG
 
 A Python toolkit for EEG data processing and Deep Learning.
