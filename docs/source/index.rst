@@ -11,6 +11,7 @@ Welcome to Documnet of DEEG's documentation!
 
    About DEEG
    Installation
+   Tutorials/index
    Python API/index
    The Team
 
