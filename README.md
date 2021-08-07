@@ -1,4 +1,4 @@
-<div align=center><img width="900" height="150" src="/figures/logo.png">  
+<div align=center><img width="600" height="150" src="/figures/logo.png"><div>  
 
 # DEEG
 
