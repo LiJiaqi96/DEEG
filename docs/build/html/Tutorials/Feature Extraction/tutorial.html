@@ -1,0 +1,455 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Feature Extraction &mdash; Documnet of DEEG v1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/jupyter-sphinx.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/thebelab.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "document", "processHtmlClass": "math|output_area"}}</script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Basic ML prediction with EEG features" href="../Basic%20ML%20prediction%20with%20EEG%20features/tutorial.html" />
+    <link rel="prev" title="Data Access" href="../Data%20Access/tutorial.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Documnet of DEEG
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../About%20DEEG.html">About DEEG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Tutorials</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Data%20Access/tutorial.html">Data Access</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Feature Extraction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#temporal-features">Temporal features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#frequency-features">Frequency features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#multichannel-features">Multichannel features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Basic%20ML%20prediction%20with%20EEG%20features/tutorial.html">Basic ML prediction with EEG features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Deep%20Learning%20with%20DEEG/tutorial.html">Deep learning with DEEG</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Python%20API/index.html">Python API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../The%20Team.html">The Team</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Documnet of DEEG</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Tutorials</a> &raquo;</li>
+        
+      <li>Feature Extraction</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/Tutorials/Feature Extraction/tutorial.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="feature-extraction">
+<h1>Feature Extraction<a class="headerlink" href="#feature-extraction" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="temporal-features">
+<h2>Temporal features<a class="headerlink" href="#temporal-features" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Kurtosis</p></li>
+</ul>
+<p>kurtosis is a statistical measure that is used to describe distribution. Kurtosis measures extreme values in either tail. Distributions with large kurtosis exhibit tail data exceeding the tails of the normal distribution. Distributions with low kurtosis exhibit tail data that are generally less extreme than the tails of the normal distribution.</p>
+<p>The kurtosis is the fourth standardized moment,</p>
+<div class="math notranslate nohighlight">
+\[kurtosis = \frac{\sum_{i=1}^{N}(Y_{i} - \bar{Y})^{4}/N}
+   {s^{4}}\]</div>
+<ul class="simple">
+<li><p>Skewness</p></li>
+</ul>
+<p>Skewness is a measure of symmetry, or more precisely, the lack of symmetry. A distribution, or data set, is symmetric if it looks the same to the left and right of the center point.</p>
+<p>For univariate data Y1, Y2, …, YN, the formula for skewness is:</p>
+<div class="math notranslate nohighlight">
+\[g_{1} = \frac{\sum_{i=1}^{N}(Y_{i} - \bar{Y})^{3}/N} {s^{3}}\]</div>
+<ul class="simple">
+<li><p>Mean Absolute Deviation (MAD)</p></li>
+</ul>
+<p>The Mean Absolute Deviation (MAD) of a set of data is the average distance between each data value and the mean. The mean absolute deviation is the “average” of the “positive distances” of each point from the mean. The larger the MAD, the greater variability there is in the data (the data is more spread out). The MAD helps determine whether the set’s mean is a useful indicator of the values within the set. The larger the MAD, the less relevant is the mean as an indicator of the values within the set.</p>
+<p>The mean absolute deviation of a set <span class="math notranslate nohighlight">\({x_{1}, x_{2}, ..., x_{n}}\)</span></p>
+<div class="math notranslate nohighlight">
+\[MAD = \frac{1}{n}\sum_{i=1}^{n}|x_{i} - \overline{x}|\]</div>
+<p>where the <span class="math notranslate nohighlight">\(x_{i}\)</span> is the <span class="math notranslate nohighlight">\(n\)</span> original observations and <span class="math notranslate nohighlight">\(\overline{x}\)</span> is the mean of the series.</p>
+<p>Here is an example calculating kurtosis, skewness, mean absolute deviation using <a class="reference internal" href="../../Python%20API/Feature%20Extraction/api.html#deeg.features.kurtosis" title="deeg.features.kurtosis"><code class="xref py py-func docutils literal notranslate"><span class="pre">deeg.features.kurtosis()</span></code></a>, <a class="reference internal" href="../../Python%20API/Feature%20Extraction/api.html#deeg.features.skewness" title="deeg.features.skewness"><code class="xref py py-func docutils literal notranslate"><span class="pre">deeg.features.skewness()</span></code></a>, and <a class="reference internal" href="../../Python%20API/Feature%20Extraction/api.html#deeg.features.mean_absolute_deviation" title="deeg.features.mean_absolute_deviation"><code class="xref py py-func docutils literal notranslate"><span class="pre">deeg.features.mean_absolute_deviation()</span></code></a> on NeuroMarketing dataset.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">deeg</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;/Data-EEG-25-users-Neuromarketing/&#39;</span>
+<span class="n">data</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">deeg</span><span class="o">.</span><span class="n">load_NeuroMarketing</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+<span class="n">data_Kurt</span> <span class="o">=</span> <span class="n">deeg</span><span class="o">.</span><span class="n">features</span><span class="o">.</span><span class="n">kurtosis</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">data_Skew</span> <span class="o">=</span> <span class="n">deeg</span><span class="o">.</span><span class="n">features</span><span class="o">.</span><span class="n">skewness</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">data_MAD</span> <span class="o">=</span> <span class="n">deeg</span><span class="o">.</span><span class="n">features</span><span class="o">.</span><span class="n">mean_absolute_deviation</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Original data shape: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Data shape after kurtosis feature extraction: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">data_Kurt</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Data shape after skewness feature extraction: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">data_Skew</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Data shape after mean absolute deviation feature extraction: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">data_MAD</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Original data shape: (1045, 14, 512)
+Data shape after kurtosis feature extraction: (1045, 14)
+Data shape after skewness feature extraction: (1045, 14)
+Data shape after mean absolute deviation feature extraction: (1045, 14)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="frequency-features">
+<h2>Frequency features<a class="headerlink" href="#frequency-features" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>Differential Entropy (DE)</p>
+<blockquote>
+<div><p>Differential entropy is used to measure the complexity of a continuous random variable and is the entropy of continuous random variable. Differential entropy is also related to minimum description length. Its calculation formula can be expressed as,</p>
+</div></blockquote>
+</li>
+</ul>
+<div class="math notranslate nohighlight">
+\[h(X)=-\int_{X}f(x)\log(f(x))dx\]</div>
+<p>where <span class="math notranslate nohighlight">\(X\)</span> is a random variable, <span class="math notranslate nohighlight">\(f(x)\)</span> is the probability density function of <span class="math notranslate nohighlight">\(X\)</span>.
+It can be found that EEG signals are subject to Gaussian distribution nearly in a series of subbands after band-pass filtering from 2Hz to 44Hz by every 2Hz step, and we assume that EEG signal is normal-distributed.For the time series <span class="math notranslate nohighlight">\(X\)</span> obeying the Gauss distribution <span class="math notranslate nohighlight">\(N(μ,σ2)\)</span>, its differential entropy can be defined as,</p>
+<div class="math notranslate nohighlight">
+\[h(X) = -\int_{-\infty}^{\infty}\frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{(x-\mu)^2}{2\sigma^3}}\log(\frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{(x-\mu)^2}{2\sigma^3}})dx\]</div>
+<div class="math notranslate nohighlight">
+\[=\frac{1}{2}\log(2\pi e\sigma^{2})\]</div>
+<p>Here is an example calculating differential entropy using <a class="reference internal" href="../../Python%20API/Feature%20Extraction/api.html#deeg.features.differential_entropy" title="deeg.features.differential_entropy"><code class="xref py py-func docutils literal notranslate"><span class="pre">deeg.features.differential_entropy()</span></code></a> on NeuroMarketing dataset.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">deeg</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;/Data-EEG-25-users-Neuromarketing/&#39;</span>
+<span class="n">data</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">deeg</span><span class="o">.</span><span class="n">load_NeuroMarketing</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+<span class="n">data_DE</span> <span class="o">=</span> <span class="n">deeg</span><span class="o">.</span><span class="n">features</span><span class="o">.</span><span class="n">differential_entropy</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Original data shape: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Data shape after differential entropy feature extraction: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">data_DE</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Original data shape: (1045, 14, 512)
+Data shape after differential entropy feature extraction: (1045, 14)
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Power Spectral Density (PSD)</p></li>
+</ul>
+<p>The Welch Method is an useful method in calculating PSD, in which the EEG signal is split into segmentation and PSD for each segment is estimated and these local estimates are averaged.</p>
+<p>Let’s assume that we split the signal <span class="math notranslate nohighlight">\(x[k]\)</span> into <span class="math notranslate nohighlight">\(L\)</span> overlapping segments <span class="math notranslate nohighlight">\(x_{l}[k]\)</span> of length N with <span class="math notranslate nohighlight">\(0\leq l\leq L-1\)</span>, starting at multiples of the stepsize <span class="math notranslate nohighlight">\(M\in 1,2,...,N\)</span>. These segments are then windowed by the windowed by the window <span class="math notranslate nohighlight">\(w[k]\)</span> of length <span class="math notranslate nohighlight">\(N\)</span>, resulting in a windowed <span class="math notranslate nohighlight">\(l-th\)</span> segment. The discrete time Fourier transformation (DTFT) <span class="math notranslate nohighlight">\(X_{l}(e^{j\Omega})\)</span> of the windowed :math:<a href="#id1"><span class="problematic" id="id2">`</span></a>l-th`segmenta is thus given as:</p>
+<div class="math notranslate nohighlight">
+\[X_{l}(e^{j\Omega}) = \sum_{k=0}^{N-1}x[k+l\cdot M]w[k]e^{-j\Omega k}\]</div>
+<p>where the window math:<cite>w[k]</cite> defined within <span class="math notranslate nohighlight">\(0\leq l\leq L-1\)</span> should be normalized as <span class="math notranslate nohighlight">\(\frac{1}{N}\sum_{k=0}^{N-1}|w[k]|^2=1\)</span>. The stepsize <span class="math notranslate nohighlight">\(M\)</span> determines the overlap between the segments. In general <span class="math notranslate nohighlight">\(N-M\)</span> number of sample overlaps overlap between adjacent segments, for <span class="math notranslate nohighlight">\(M=N\)</span> no overlap occurs. The overlap is sometimes given as ratio <span class="math notranslate nohighlight">\(\frac{N-M}{N}\cdot 100\)</span> %.</p>
+<p>Introducing <span class="math notranslate nohighlight">\(X_{l}(e^{j\Omega})\)</span> into the definition of the periodogram yields the periodogram of the <span class="math notranslate nohighlight">\(l-th\)</span> segment</p>
+<div class="math notranslate nohighlight">
+\[\hat{\Phi}_{xx,l}(e^{j\Omega}) = \frac{1}{N}|X_{l}(e^{j\Omega})|^2\]</div>
+<p>The estimated PSD is then given by averaging over the segment’s periodograms <span class="math notranslate nohighlight">\(\hat{\Phi}_{xx,l}(e^{j\Omega})\)</span></p>
+<div class="math notranslate nohighlight">
+\[\hat{\Phi}_{xx,l}(e^{j\Omega}) = \frac{1}{L}\sum_{l=0}^{L-1}\hat{\Phi}_{xx,l}(e^{j\Omega})\]</div>
+<p>Here is an example using <a class="reference internal" href="../../Python%20API/Data%20Process/api.html#deeg.process.band" title="deeg.process.band"><code class="xref py py-func docutils literal notranslate"><span class="pre">deeg.process.band()</span></code></a> and <a class="reference internal" href="../../Python%20API/Feature%20Extraction/api.html#deeg.features.power_spectral_density" title="deeg.features.power_spectral_density"><code class="xref py py-func docutils literal notranslate"><span class="pre">deeg.features.power_spectral_density()</span></code></a> on NeuroMarketing dataset.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">deeg</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;/Data-EEG-25-users-Neuromarketing/&#39;</span>
+<span class="n">data</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">deeg</span><span class="o">.</span><span class="n">load_NeuroMarketing</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+<span class="n">data_band</span> <span class="o">=</span> <span class="n">deeg</span><span class="o">.</span><span class="n">process</span><span class="o">.</span><span class="n">band</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">data_PSD</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">band</span> <span class="ow">in</span> <span class="n">data_band</span><span class="p">:</span>
+    <span class="n">data_PSD</span><span class="p">[</span><span class="n">band</span><span class="p">]</span> <span class="o">=</span> <span class="n">deeg</span><span class="o">.</span><span class="n">features</span><span class="o">.</span><span class="n">power_spectral_density</span><span class="p">(</span><span class="n">data_band</span><span class="p">[</span><span class="n">band</span><span class="p">],</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">256</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Original data shape of </span><span class="si">{}</span><span class="s2"> band: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">band</span><span class="p">,</span> <span class="n">data_band</span><span class="p">[</span><span class="n">band</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Data shape of </span><span class="si">{}</span><span class="s2"> band after feature extraction: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">band</span><span class="p">,</span> <span class="n">data_PSD</span><span class="p">[</span><span class="n">band</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Original data shape of delta band: (1045, 14, 512)
+Data shape of delta band after feature extraction: (1045, 14, 5)
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Original data shape of theta band: (1045, 14, 512)
+Data shape of theta band after feature extraction: (1045, 14, 5)
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Original data shape of alpha band: (1045, 14, 512)
+Data shape of alpha band after feature extraction: (1045, 14, 5)
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Original data shape of beta band: (1045, 14, 512)
+Data shape of beta band after feature extraction: (1045, 14, 5)
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Original data shape of gamma band: (1045, 14, 512)
+Data shape of gamma band after feature extraction: (1045, 14, 5)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="multichannel-features">
+<h2>Multichannel features<a class="headerlink" href="#multichannel-features" title="Permalink to this headline">¶</a></h2>
+<p>Lateralization between the left and right hemisphere, and spectral differences along frontal and posterior brain regions are associated with emotions. Here we developed differential asymmetry (RASM), and differential caudality (DCAU) methods in multichanel feature extraction.</p>
+<p>Here is the EEG cap layout for 73 channels:</p>
+<img alt="../../_images/1.png" src="../../_images/1.png" />
+<p>Left-right hemispheric asymmetry electrodes are: Fp1-Fp2, AF7-AF8, AF3-AF4, AF9-AF10, F7-F8, F5-F6, F3-F4, F1-F2, FT9-FT10, FT7-FT8, FC5-FC6, FC3-FC4, FC1-FC2, LPA-RPA, T7-T8, C5-C6, C3-C4, C1-C2, TP9-TP10, TP7-TP8, CP5-CP6, CP3-CP4, CP1-CP2, P9-P10, P7-P8, P5-P6, P3-P4, P1-P2, PO7-PO8, PO3-PO4, O1-O2.</p>
+<p>Frontal-posterior hemespheric asymmetry electrodes are: Nz-lz, Fp1-O1, Fpz-Oz, Fp2-O2, AF7-PO7, AF3-PO3, Afz-POz, AF4-PO4, AF8-PO8, F9-P9, F7-P7, F5-P5, F3-P3, F1-P1, Fz-Pz, F2-P2, F4-P4, F6-P6, F8-P8, F10-P10, FT9-TP9, FC5-CP5, FC3-CP3, FC1-CP1, FCz-CPz, FC2-CP2, FC4-CP4, FC6-CP6, FT8-FT10, TP10.</p>
+<ul class="simple">
+<li><p>Differential asymmetry (DASM)</p></li>
+</ul>
+<p>The differences between the DE features of hemispheric asymmetry electrodes</p>
+<p>Here is an example using <a class="reference internal" href="../../Python%20API/Feature%20Extraction/api.html#deeg.features.differential_asymmetry" title="deeg.features.differential_asymmetry"><code class="xref py py-func docutils literal notranslate"><span class="pre">deeg.features.differential_asymmetry()</span></code></a> on NeuroMarketing dataset:</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">deeg</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;/Data-EEG-25-users-Neuromarketing/&#39;</span>
+<span class="n">data</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">deeg</span><span class="o">.</span><span class="n">load_NeuroMarketing</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+<span class="n">channel_name</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;AF3&#39;</span><span class="p">,</span> <span class="s1">&#39;F7&#39;</span><span class="p">,</span> <span class="s1">&#39;F3&#39;</span><span class="p">,</span> <span class="s1">&#39;FC5&#39;</span><span class="p">,</span> <span class="s1">&#39;T7&#39;</span><span class="p">,</span> <span class="s1">&#39;P7&#39;</span><span class="p">,</span> <span class="s1">&#39;O1&#39;</span><span class="p">,</span> <span class="s1">&#39;O2&#39;</span><span class="p">,</span> <span class="s1">&#39;P8&#39;</span><span class="p">,</span> <span class="s1">&#39;T8&#39;</span><span class="p">,</span> <span class="s1">&#39;FC6&#39;</span><span class="p">,</span> <span class="s1">&#39;F4&#39;</span><span class="p">,</span> <span class="s1">&#39;F8&#39;</span><span class="p">,</span> <span class="s1">&#39;AF4&#39;</span><span class="p">]</span>
+<span class="n">data_DASM</span> <span class="o">=</span> <span class="n">deeg</span><span class="o">.</span><span class="n">features</span><span class="o">.</span><span class="n">differential_asymmetry</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">channel_name</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Original data shape: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Data shape after feature extraction: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">data_DASM</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Original data shape: (1045, 14, 512)
+Data shape after feature extraction: (1045, 7)
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Rational asymmetry (RASM)</p></li>
+</ul>
+<p>The ratios between the DE features of hemispheric asymmetry electrodes</p>
+<ul class="simple">
+<li><p>Differential caudality (DCAU)</p></li>
+</ul>
+<p>The the differences the differences between DE features of frontal-posterior electrodes</p>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://bcmi.sjtu.edu.cn/~zhujiayi/pdf/NER2013.pdf">https://bcmi.sjtu.edu.cn/~zhujiayi/pdf/NER2013.pdf</a>
+<a class="reference external" href="https://ieeexplore.ieee.org/document/6611075">https://ieeexplore.ieee.org/document/6611075</a>
+<a class="reference external" href="https://zhuanlan.zhihu.com/p/67583198">https://zhuanlan.zhihu.com/p/67583198</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../Basic%20ML%20prediction%20with%20EEG%20features/tutorial.html" class="btn btn-neutral float-right" title="Basic ML prediction with EEG features" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../Data%20Access/tutorial.html" class="btn btn-neutral float-left" title="Data Access" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Yiming Li, Jiaqi Li, Zhihao Zhao, Cong Zhang, Chen Chen.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

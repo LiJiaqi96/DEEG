@@ -1,0 +1,81 @@
+Data Process
+===============
+
+Data process is essential in EEG signal analysis. First, original EEG signal may contain missing values and noise, which may disturb or hidden the real information. Also, a lot of research works have shown that the spectrum properties of EEG on certain frequency bands are very important to uncover useful information which cannot be directly quantified by original temporal signal. In addition, the number of samples are relatively small for EEG signal, which may not fully release the power of machine learning. Data augmentation through segmentation and sampling are two major ways to increase sample size in EEG analysis.
+
+So we designed the data process module to provide solutions to the requirements mentioned above. The data process module contains 5 functions:
+
+- process.check(:ref:`process_check`)
+- process.smooth(:ref:`process_smooth`)
+- process.band(:ref:`process_band`)
+- process.segment(:ref:`process_segment`)
+- process.sampling(:ref:`process_sampling`)
+
+
+.. process_check:
+process.check
+------------------
+Check whether the input signal contains NaN, print relevant information
+
+**input:**
+    array: numpy array. The temporal signal with 1d or with multiple dimensions
+**return:**
+    None or dict. Dict stores indicator of Nan/Abnormal values.
+    If there is no NaN in signal, return None, else return the index where NaN occurs.
+
+.. process_smooth:
+process.smooth
+------------------
+Apply the Savitzky-Golay fiklter to smooth signals. We support both 1d array input and DEEG standard input (p,m,e). For the later format, we calculate DE on "e" dimension and return a (p,m) numpy array.
+
+**input:**
+    signal: numpy array or list.window_size: int. the length of the filter window (i.e., the number of coefficients).
+
+    window_size: int. the length of the filter window (i.e., the number of coefficients). window_length must be a positive odd integer. default is 5. 
+    
+    polyorder: int. the order of the polynomial used to fit the samples. polyorder must be less than window_length. default is 2.
+
+**return:**
+    y: ndarray. same shape as x. The filtered data.
+
+
+.. process_band:
+process.band
+------------------
+Filter temporal signal by all the 5 filters commonly used in EEG analysis: delta, theta, alpha, beta, gamma.
+
+**input:**
+    signal: numpy array. The input temporal signal. 1d or with multiple dimensions
+**return:**
+    ts_dict: dictionary. Keys are filter name and values are filtered signal in temporal domain.
+
+
+.. process_segment:
+process.segment
+------------------
+Generate the signal segments to augment sample size.
+
+**input:**
+    array: numpy array. The input temporal signal. 1d or with multiple dimensions
+
+    length: int. The length of segments. Default is 10, which means each signal segment contains 10 data points.
+    
+    overlap: int. The overlap length between neighboring segments. Default is 1.
+
+**return:**
+    segmented_array: numpy array with shape (p,m,s,e) or (s,e), depending on the input. s is the number of segments.
+
+
+.. process_sampling:
+process.sampling
+------------------
+Down-sample the input signal with certain interval.
+
+**input:**
+    array: numpy array. The input temporal signal. 1d or with multiple dimensions
+
+    interval: int. The interval to sample EEG signal. Default is 1, which means NO down-sampling is applied
+    
+    offset: int. Sampling starts from "offset-th" data point
+**return:**
+    sampled_array: numpy array. Down-sampled signal

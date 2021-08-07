@@ -1,0 +1,349 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Data Process &mdash; Documnet of DEEG v1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/jupyter-sphinx.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/thebelab.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Feature Extraction" href="../Feature%20Extraction/api.html" />
+    <link rel="prev" title="Data Access" href="../Data%20Access/api.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Documnet of DEEG
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../About%20DEEG.html">About DEEG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Python API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Data%20Access/api.html">Data Access</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Data Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Feature%20Extraction/api.html">Feature Extraction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Models/api.html">Models</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../The%20Team.html">The Team</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Documnet of DEEG</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Python API</a> &raquo;</li>
+        
+      <li>Data Process</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/Python API/Data Process/api.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="data-process">
+<h1>Data Process<a class="headerlink" href="#data-process" title="Permalink to this headline">¶</a></h1>
+<p>Data process is essential in EEG signal analysis. First, original EEG signal may contain missing values and noise, which may disturb or hidden the real information. Also, a lot of research works have shown that the spectrum properties of EEG on certain frequency bands are very important to uncover useful information which cannot be directly quantified by original temporal signal. In addition, the number of samples are relatively small for EEG signal, which may not fully release the power of machine learning. Data augmentation through segmentation and sampling are two major ways to increase sample size in EEG analysis.</p>
+<p>So we designed the data process module to provide solutions to the requirements mentioned above. The data process module contains 5 functions:</p>
+<ul class="simple">
+<li><p>process.check(<a class="reference internal" href="#deeg.process.check" title="deeg.process.check"><code class="xref py py-func docutils literal notranslate"><span class="pre">deeg.process.check()</span></code></a>)</p></li>
+<li><p>process.smooth(<a class="reference internal" href="#deeg.process.smooth" title="deeg.process.smooth"><code class="xref py py-func docutils literal notranslate"><span class="pre">deeg.process.smooth()</span></code></a>)</p></li>
+<li><p>process.band(<a class="reference internal" href="#deeg.process.band" title="deeg.process.band"><code class="xref py py-func docutils literal notranslate"><span class="pre">deeg.process.band()</span></code></a>)</p></li>
+<li><p>process.segment(<a class="reference internal" href="#deeg.process.segment" title="deeg.process.segment"><code class="xref py py-func docutils literal notranslate"><span class="pre">deeg.process.segment()</span></code></a>)</p></li>
+<li><p>process.sampling(<code class="xref py py-func docutils literal notranslate"><span class="pre">pdeeg.rocess.sampling()</span></code>)</p></li>
+</ul>
+<hr class="docutils" />
+<dl class="py function">
+<dt class="sig sig-object py" id="deeg.process.check">
+<span class="sig-prename descclassname"><span class="pre">deeg.process.</span></span><span class="sig-name descname"><span class="pre">check</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">array</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#deeg.process.check" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check whether the input signal contains NaN, print relevant information</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>array</strong> (<em>numpy array</em>) – the temporal signal with 1d or with multiple dimensions</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None or dict. Dict stores indicator of Nan/Abnormal values. If there is no NaN in signal, return None, else return the index where NaN occurs.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<hr class="docutils" />
+<dl class="py function">
+<dt class="sig sig-object py" id="deeg.process.smooth">
+<span class="sig-prename descclassname"><span class="pre">deeg.process.</span></span><span class="sig-name descname"><span class="pre">smooth</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">polyorder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#deeg.process.smooth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply the Savitzky-Golay fiklter to smooth signals. We support both 1d array input and DEEG standard input (p,m,e). For the later format, we calculate DE on “e” dimension and return a (p,m) numpy array.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>array</strong> (<em>numpy array</em>) – the temporal signal with 1d or with multiple dimensions</p></li>
+<li><p><strong>window_size</strong> (<em>int.  window_size must be a positive odd integer. default is 5.</em>) – the length of the filter window. window_size must be a positive odd integer. default is 5.</p></li>
+<li><p><strong>polyorder</strong> (<em>int</em>) – the order of the polynomial used to fit the samples. polyorder must be less than window_length. default is 2.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>ndarray of the filtered data, same shape as array.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<hr class="docutils" />
+<dl class="py function">
+<dt class="sig sig-object py" id="deeg.process.band">
+<span class="sig-prename descclassname"><span class="pre">deeg.process.</span></span><span class="sig-name descname"><span class="pre">band</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">array</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#deeg.process.band" title="Permalink to this definition">¶</a></dt>
+<dd><p>Filter temporal signal by all the 5 filters commonly used in EEG analysis: delta, theta, alpha, beta, gamma.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>array</strong> (<em>numpy array</em>) – the temporal signal with 1d or with multiple dimensions</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>dictionary. Keys are filter name and values are filtered signal in temporal domain.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<hr class="docutils" />
+<dl class="py function">
+<dt class="sig sig-object py" id="deeg.process.segment">
+<span class="sig-prename descclassname"><span class="pre">deeg.process.</span></span><span class="sig-name descname"><span class="pre">segment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overlap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#deeg.process.segment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate the signal segments to augment sample size.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>array</strong> (<em>numpy array</em>) – the temporal signal with 1d or with multiple dimensions</p></li>
+<li><p><strong>length</strong> (<em>int</em>) – the length of segments. Default is 10, which means each signal segment contains 10 data points.</p></li>
+<li><p><strong>overlap</strong> (<em>int</em>) – the overlap length between neighboring segments. Default is 1.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>numpy array with shape (p,m,s,e) or (s,e), depending on the input. s is the number of segments.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<hr class="docutils" />
+<dl class="py function">
+<dt class="sig sig-object py" id="deeg.process.sampling">
+<span class="sig-prename descclassname"><span class="pre">deeg.process.</span></span><span class="sig-name descname"><span class="pre">sampling</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">array</span></em>, <em class="sig-param"><span class="pre">interval=1</span></em>, <em class="sig-param"><span class="pre">offset</span></em><span class="sig-paren">)</span><a class="headerlink" href="#deeg.process.sampling" title="Permalink to this definition">¶</a></dt>
+<dd><p>Down-sample the input signal with certain interval.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>array</strong> (<em>numpy array</em>) – the temporal signal with 1d or with multiple dimensions</p></li>
+<li><p><strong>interval</strong> (<em>int</em>) – the interval to sample EEG signal. Default is 1, which means NO down-sampling is applied</p></li>
+<li><p><strong>offset</strong> (<em>int</em>) – sampling starts from “offset-th” data point</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>numpy array of down-sampled signal</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../Feature%20Extraction/api.html" class="btn btn-neutral float-right" title="Feature Extraction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../Data%20Access/api.html" class="btn btn-neutral float-left" title="Data Access" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Yiming Li, Jiaqi Li, Zhihao Zhao, Cong Zhang, Chen Chen.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
