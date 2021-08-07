@@ -11,6 +11,7 @@ Tutorials
    
    Data Access/tutorial
    Feature Extraction/tutorial
+   Basic ML prediction with EEG features/tutorial
    Deep Learning with DEEG/tutorial
 
 
