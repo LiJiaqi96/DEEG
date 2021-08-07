@@ -1,7 +1,4 @@
 ipykernel
 nbsphinx
 jupyter_sphinx
-<<<<<<< HEAD
-=======
 deeg
->>>>>>> 792a326511c78bf7a5662e968a75a019692cb48e
