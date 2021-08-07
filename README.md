@@ -4,6 +4,11 @@
 
 A Python toolkit for EEG data processing and Deep Learning.
 
+## Install
+'''
+pip install deeg
+'''
+
 ## Structure
 
 The structure of this package contains four main layers for creating a novel workflow in EEG data analysis:
