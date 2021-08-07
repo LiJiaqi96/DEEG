@@ -1,4 +1,5 @@
-<img width="150" height="150" src="/figures/logo.png">
+<div align=center><img width="900" height="150" src="/figures/logo.png">  
+
 # DEEG
 
 A Python toolkit for EEG data processing and Deep Learning.
