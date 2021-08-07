@@ -6,6 +6,7 @@ A Python toolkit for EEG data processing and Deep Learning.
 
 ## Install
 Easily install DEEG from pypi using pip command:  
+  
 `pip install deeg`
 
 ## Structure
