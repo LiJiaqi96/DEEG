@@ -5,9 +5,9 @@
 A Python toolkit for EEG data processing and Deep Learning.
 
 ## Install
-'''
+```
 pip install deeg
-'''
+```
 
 ## Structure
 
