@@ -1,0 +1,15 @@
+README.md
+license
+setup.py
+deeg/__init__.py
+deeg/access.py
+deeg/features.py
+deeg/models.py
+deeg/process.py
+deeg/test.py
+deeg/utils.py
+deeg.egg-info/PKG-INFO
+deeg.egg-info/SOURCES.txt
+deeg.egg-info/dependency_links.txt
+deeg.egg-info/requires.txt
+deeg.egg-info/top_level.txt
