@@ -1,3 +1,0 @@
-Multi-Channel Features
-======================
-
